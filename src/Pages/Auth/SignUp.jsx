@@ -1,17 +1,20 @@
 import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
 import { FaGoogle } from "react-icons/fa";
+import Swal from "sweetalert2";
 
 const SignUp = () => {
     const navigate = useNavigate()
-    const { registerAuth, logOut, updateUserProfile, googleLogIn } = useContext(AuthContext);
-    const { register, handleSubmit, formState: { errors } } = useForm();
+    const location = useLocation()
+    const { registerAuth, updateUserProfile, googleLogIn } = useContext(AuthContext);
+    const { register, handleSubmit, formState: { errors }, reset } = useForm();
     const [pass, setPass] = useState('');
     const [passwordError, setPasswordError] = useState('');
     const [confPassError, setConfpassError] = useState('');
     const [authError, setAuthError] = useState('')
+    const from = location.state?.from?.pathname || '/'
 
     const handlePassword = (e) => {
         const password = e.target.value;
@@ -32,19 +35,34 @@ const SignUp = () => {
             setConfpassError('');
         }
     }
-    const handleLogOut = () => {
-        logOut()
-            .then(() => {
-                navigate('/login');
-            }).catch((error) => {
-                console.log(error.message);
-            });
-    }
+    // TODO: Should i include github and direct user to login page? now to home page
+    // const handleLogOut = () => {
+    //     logOut()
+    //         .then(() => {
+    //             navigate('/login');
+    //         }).catch((error) => {
+    //             console.log(error.message);
+    //         });
+    // }
     // google
     const handleGoogleLogin = () => {
         googleLogIn()
-            .then(() => {
-                handleLogOut();
+            .then((result) => {
+                //handleLogOut();
+                const loggedInUser = result.user;
+                console.log(loggedInUser);
+                const newUser = { name: loggedInUser.displayName, email: loggedInUser.email }
+                fetch('http://localhost:5000/users', {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(newUser)
+                })
+                    .then(res => res.json())
+                    .then(() => {
+                        navigate(from, { replace: true });
+                    })
             })
             .catch(error => setAuthError(error.message.split('/')[1].slice(0, -2)))
     }
@@ -64,7 +82,29 @@ const SignUp = () => {
                 .then(() => {
                     updateUserProfile(data.name, data.photoUrl)
                         .then(() => {
-                            handleLogOut();
+                            const newuser = { name: data.name, email: data.email }
+                            fetch('http://localhost:5000/users', {
+                                method: 'POST',
+                                headers: {
+                                    'content-type': 'application/json'
+                                },
+                                body: JSON.stringify(newuser)
+                            })
+                                .then(res => res.json())
+                                .then(data => {
+                                    if (data.insertedId) {
+                                        reset();
+                                        Swal.fire({
+                                            position: 'top-end',
+                                            icon: 'success',
+                                            title: 'User created successfully.',
+                                            showConfirmButton: false,
+                                            timer: 1500
+                                        });
+                                        navigate('/');
+                                    }
+                                })
+                            // handleLogOut();
                         })
                         .catch(error => console.log(error.message))
                 })

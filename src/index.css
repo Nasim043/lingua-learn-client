@@ -9,4 +9,12 @@
   .error{
     color: #ef4444;
   }
-  
+  .drawer-side a{
+    color: #ffff;
+  }
+  .drawer-side a:hover{
+    color: #fbbd0d;
+  }
+  .drawer-side a.active{
+    color: #fbbd0d;
+  }
