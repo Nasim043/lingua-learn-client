@@ -1,3 +1,12 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.error::before {
+    content: "⚠ ";
+    color: #ef4444;
+  }
+  .error{
+    color: #ef4444;
+  }
+  

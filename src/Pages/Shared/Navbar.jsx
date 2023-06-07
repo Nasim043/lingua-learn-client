@@ -1,18 +1,13 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../Provider/AuthProvider";
 
 const Navbar = () => {
+    const { user } = useContext(AuthContext)
     const navItems = <>
-        <li><a>Item 1</a></li>
-        <li tabIndex={0}>
-            <details>
-                <summary>Parent</summary>
-                <ul className="p-2">
-                    <li><a>Submenu 1</a></li>
-                    <li><a>Submenu 2</a></li>
-                </ul>
-            </details>
-        </li>
-        <li><a>Item 3</a></li>
+        <li><Link to="/">Home</Link></li>
+        <li><Link to="/">Instructors</Link></li>
+        <li><Link to="/">Classes</Link></li>
 
     </>
     return (
@@ -27,21 +22,27 @@ const Navbar = () => {
                             {navItems}
                         </ul>
                     </div>
-                    <>
                     <Link className="uppercase text-2xl font-bold text-myprimary">Stack Learner</Link>
-                    <Link className="uppercase text-2xl font-bold text-myprimary1">Stack Learner</Link>
-                    </>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1 text-myprimary">
-                    {navItems}
+                        {navItems}
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <a className="btn">Button</a>
+                    <div className="flex items-center">
+                        {
+                            user ? <>
+                                <img src={user?.photoURL} className="w-10 rounded-full" />
+                                <button className="btn btn-primary btn-sm">Logout</button>
+                            </> :
+                        <>
+                            <Link to="login"><button className="btn btn-primary btn-sm">Login</button></Link>
+                        </>
+                       }
+                    </div>
                 </div>
             </div>
-            <p className="text-lg text-[##536175]">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
         </>
     );
 };
