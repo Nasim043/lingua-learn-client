@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import Main from "../Layout/Main";
 import Login from "../Pages/Auth/Login";
 import SignUp from "../Pages/Auth/SignUp";
+import Dashboard from "../Layout/Dashboard";
 
 const router = createBrowserRouter([
     {
@@ -18,6 +19,10 @@ const router = createBrowserRouter([
         }
       ]
     },
+    {
+      path: "dashboard",
+      element: <Dashboard></Dashboard>
+    }
   ]);
 
 export default router;
