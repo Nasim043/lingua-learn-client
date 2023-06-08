@@ -5,11 +5,14 @@ import SignUp from "../Pages/Auth/SignUp";
 import Dashboard from "../Layout/Dashboard";
 import AdminClasses from "../Pages/Dashboard/Admin/AdminClasses";
 import AdminUsers from "../Pages/Dashboard/Admin/AdminUsers";
+import ErrorPage from "../Pages/Error/ErrorPage";
+import InstructorAddClass from "../Pages/Dashboard/Instructors/InstructorAddClass";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Main></Main>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: "login",
@@ -24,6 +27,7 @@ const router = createBrowserRouter([
   {
     path: "dashboard",
     element: <Dashboard></Dashboard>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: "adminclasses",
@@ -32,6 +36,10 @@ const router = createBrowserRouter([
       {
         path: "adminusers",
         element: <AdminUsers></AdminUsers>
+      },
+      {
+        path: "instructoraddclass",
+        element: <InstructorAddClass></InstructorAddClass>
       }
     ]
   }

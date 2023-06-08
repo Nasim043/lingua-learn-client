@@ -34,8 +34,13 @@ const Dashboard = () => {
                             </div>
                             : ""
                     }
+                    
                     <li><NavLink to='/dashboard/adminclasses'><GiTeacher></GiTeacher>Manage Classes</NavLink></li>
                     <li><NavLink to='/dashboard/adminusers'><FaUsers></FaUsers>Manage Users</NavLink></li>
+
+                    <li><NavLink to='/dashboard/instructoraddclass'><GiTeacher></GiTeacher>Add a Class</NavLink></li>
+                    <li><NavLink to='/dashboard/adminusers'><FaUsers></FaUsers>All Class</NavLink></li>
+
                     <li><Link to='/'><FaHome></FaHome>Home Page</Link></li>
                 </ul>
 
