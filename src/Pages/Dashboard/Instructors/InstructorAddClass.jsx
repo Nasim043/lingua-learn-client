@@ -39,12 +39,12 @@ const InstructorAddClass = () => {
                 if (response.success) {
                     const image_url = response.data.display_url;
                     const classInfo = {
-                        Image: image_url,
-                        Name: className,
-                        Instructor_name: user?.displayName,
-                        Instructor_email: user?.email,
-                        Available_seats: availableSeats,
-                        Price: price,
+                        image: image_url,
+                        name: className,
+                        instructor_name: user?.displayName,
+                        instructor_email: user?.email,
+                        available_seats: availableSeats,
+                        price: price,
                         status: 'pending'
                     }
                     axiosSecure.post('/classes', classInfo)

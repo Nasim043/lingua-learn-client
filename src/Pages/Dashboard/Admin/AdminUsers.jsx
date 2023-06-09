@@ -1,21 +1,13 @@
-import { useQuery } from "@tanstack/react-query";
-import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
+import useAllUsers from "../../../hooks/useAllUsers";
 
 
 const AdminUsers = () => {
-    const [axiosSecure] = useAxiosSecure()
-    const { data: users = [], refetch } = useQuery({
-        queryKey: ['users'],
-        queryFn: async () => {
-            const res = await axiosSecure.get('/users')
-            return res.data;
-        }
-    })
+    const [users, refetch] = useAllUsers()
 
     const handleRole = (user, role) => {
         user.role = role;
-        console.log(user);
+        refetch();
         fetch(`http://localhost:5000/users/${user.email}`, {
             method: 'PATCH',
             body: JSON.stringify(user),
@@ -30,7 +22,7 @@ const AdminUsers = () => {
                 console.log('data', data);
                 if (data.matchedCount) {
                     Swal.fire({
-                        position: 'center',
+                        position: 'top-right',
                         icon: 'success',
                         title: `${user.name}, you are ${user.role} now`,
                         showConfirmButton: false,
