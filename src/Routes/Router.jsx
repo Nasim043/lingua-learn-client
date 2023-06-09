@@ -6,6 +6,7 @@ import Dashboard from "../Layout/Dashboard";
 import AdminClasses from "../Pages/Dashboard/Admin/AdminClasses";
 import AdminUsers from "../Pages/Dashboard/Admin/AdminUsers";
 import ErrorPage from "../Pages/Error/ErrorPage";
+import Classes from "../Pages/Classes/Classes";
 import InstructorAddClass from "../Pages/Dashboard/Instructors/InstructorAddClass";
 import InstructorManageClass from "../Pages/Dashboard/Instructors/InstructorManageClass";
 import StudentSelectedClass from "../Pages/Dashboard/Student/StudentSelectedClass";
@@ -24,6 +25,10 @@ const router = createBrowserRouter([
       {
         path: "signup",
         element: <SignUp></SignUp>
+      },
+      {
+        path: "classes",
+        element: <Classes></Classes>
       }
     ]
   },

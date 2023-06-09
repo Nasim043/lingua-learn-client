@@ -14,7 +14,23 @@
   }
   .drawer-side a:hover{
     color: #fbbd0d;
+    border: 2px solid #fbbd0d;
   }
   .drawer-side a.active{
     color: #fbbd0d;
+    border: 2px solid #fbbd0d;
+  }
+  .my-menu a{
+    color: #fbbd0d;
+    border-radius: 0;
+  }
+  .my-menu a:hover{
+    color: #fbbd0d;
+    border-bottom: 2px solid #fbbd0d;
+    border-radius: 0;
+  }
+  .my-menu a.active{
+    color: #fbbd0d;
+    border-bottom: 2px solid #fbbd0d;
+    border-radius: 0;
   }

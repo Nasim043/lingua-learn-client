@@ -7,7 +7,8 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        custom: ['Boing', 'Noto', '"Noto Sans JP"', '"Noto Sans KR"', '"Noto Sans SC"', '"Open Sans"', 'sans-serif'],
+        'custom': ['Boing', 'Noto', '"Noto Sans JP"', '"Noto Sans KR"', '"Noto Sans SC"', '"Open Sans"', 'sans-serif'],
+        'my-font': ['Poppins', 'sans-serif'],
       },
       colors: {
         'myprimary': '#fbbd0d',

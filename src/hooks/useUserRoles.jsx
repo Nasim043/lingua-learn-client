@@ -6,7 +6,7 @@ import { AuthContext } from "../Provider/AuthProvider";
 const useUserRoles = () => {
     const { user, loading } = useContext(AuthContext)
     const [axiosSecure] = useAxiosSecure();
-    const { data, isLoading } = useQuery({
+    const { data } = useQuery({
         queryKey: ['userRole', user?.role],
         enabled: !loading,
         queryFn: fetchUserRole
