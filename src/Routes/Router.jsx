@@ -7,6 +7,9 @@ import AdminClasses from "../Pages/Dashboard/Admin/AdminClasses";
 import AdminUsers from "../Pages/Dashboard/Admin/AdminUsers";
 import ErrorPage from "../Pages/Error/ErrorPage";
 import InstructorAddClass from "../Pages/Dashboard/Instructors/InstructorAddClass";
+import InstructorManageClass from "../Pages/Dashboard/Instructors/InstructorManageClass";
+import StudentSelectedClass from "../Pages/Dashboard/Student/StudentSelectedClass";
+import StudentEnrolledClass from "../Pages/Dashboard/Student/StudentEnrolledClass";
 
 const router = createBrowserRouter([
   {
@@ -40,7 +43,19 @@ const router = createBrowserRouter([
       {
         path: "instructoraddclass",
         element: <InstructorAddClass></InstructorAddClass>
-      }
+      },
+      {
+        path: "instructormanageclass",
+        element: <InstructorManageClass></InstructorManageClass>
+      },
+      {
+        path: "studentselectedclass",
+        element: <StudentSelectedClass></StudentSelectedClass>
+      },
+      {
+        path: "studentenrolledclass",
+        element: <StudentEnrolledClass></StudentEnrolledClass>
+      },
     ]
   }
 ]);

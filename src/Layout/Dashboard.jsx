@@ -3,9 +3,11 @@ import { AuthContext } from "../Provider/AuthProvider";
 import { Link, NavLink, Outlet } from "react-router-dom";
 import { FaHome, FaUsers, FaBars } from "react-icons/fa";
 import { GiTeacher } from "react-icons/gi";
+import useUserRoles from "../hooks/useUserRoles";
 
 const Dashboard = () => {
     const { user } = useContext(AuthContext);
+    const { role, isAdmin, isInstructor, isStudent } = useUserRoles()
     return (
         <div className="drawer md:drawer-open">
             <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
@@ -30,16 +32,38 @@ const Dashboard = () => {
                                 <div className="mb-4">
                                     <p className="text-2xl font-medium text-white">Welcome, {user.displayName}</p>
                                     {/* <p className="text-sm font-medium">{user.email}</p> */}
+                                    <p className="text-sm font-medium text-white capitalize">{role} Dashboard</p>
                                 </div>
                             </div>
                             : ""
                     }
-                    
-                    <li><NavLink to='/dashboard/adminclasses'><GiTeacher></GiTeacher>Manage Classes</NavLink></li>
-                    <li><NavLink to='/dashboard/adminusers'><FaUsers></FaUsers>Manage Users</NavLink></li>
 
-                    <li><NavLink to='/dashboard/instructoraddclass'><GiTeacher></GiTeacher>Add a Class</NavLink></li>
-                    <li><NavLink to='/dashboard/adminusers'><FaUsers></FaUsers>All Class</NavLink></li>
+                    {
+                        isAdmin && (
+                            <>
+                                <li><NavLink to='/dashboard/adminclasses'><GiTeacher></GiTeacher>Manage Classes</NavLink></li>
+                                <li><NavLink to='/dashboard/adminusers'><FaUsers></FaUsers>Manage Users</NavLink></li>
+                            </>
+                        )
+                    }
+
+                    {
+                        isInstructor && (
+                            <>
+                                <li><NavLink to='/dashboard/instructoraddclass'><GiTeacher></GiTeacher>Add a Class</NavLink></li>
+                                <li><NavLink to='/dashboard/instructormanageclass'><FaUsers></FaUsers>All Class</NavLink></li>
+                            </>
+                        )
+                    }
+
+                    {
+                        isStudent && (
+                            <>
+                                <li><NavLink to='/dashboard/studentselectedclass'><GiTeacher></GiTeacher>My Selected Class</NavLink></li>
+                                <li><NavLink to='/dashboard/studentenrolledclass'><FaUsers></FaUsers>My Enrolled Class</NavLink></li>
+                            </>
+                        )
+                    }
 
                     <li><Link to='/'><FaHome></FaHome>Home Page</Link></li>
                 </ul>
