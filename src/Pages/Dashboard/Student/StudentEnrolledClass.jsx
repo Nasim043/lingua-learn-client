@@ -1,8 +1,9 @@
+import DashboadSection from "../../Shared/DashboadSection";
 
 const StudentEnrolledClass = () => {
     return (
         <div>
-            <h3>My enrolled class</h3>
+           <DashboadSection heading={"My enrolled classes"}></DashboadSection>
         </div>
     );
 };

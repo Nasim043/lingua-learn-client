@@ -25,8 +25,8 @@
     border-radius: 0;
   }
   .my-menu a:hover{
-    color: #fbbd0d;
-    border-bottom: 2px solid #fbbd0d;
+    color: #facc15;
+    border-bottom: 2px solid #facc15;
     border-radius: 0;
   }
   .my-menu a.active{

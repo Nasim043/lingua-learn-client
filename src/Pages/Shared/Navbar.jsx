@@ -1,9 +1,11 @@
 import { useContext } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
+import useUserRoles from "../../hooks/useUserRoles";
 
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext)
+    const { role, isAdmin, isInstructor, isStudent } = useUserRoles()
     const navigate = useNavigate()
     const handleLogOut = () => {
         logOut()
@@ -16,10 +18,25 @@ const Navbar = () => {
 
     const navItems = <>
         <li><NavLink to="/">Home</NavLink></li>
-        <li><NavLink to="/">Instructors</NavLink></li>
+        <li><NavLink to="/instructors">Instructors</NavLink></li>
         <li><NavLink to="/classes">Classes</NavLink></li>
-        <li><NavLink to="/dashboard">DashBoard</NavLink></li>
+        {
+            isAdmin && (
+                <li><NavLink to="/dashboard/adminusers">DashBoard</NavLink></li>
+            )
+        }
 
+        {
+            isInstructor && (
+                <li><NavLink to="/dashboard/instructormanageclass">DashBoard</NavLink></li>
+            )
+        }
+
+        {
+            isStudent && (
+                <li><NavLink to="/dashboard/studentselectedclass">DashBoard</NavLink></li>
+            )
+        }
     </>
     return (
         <>

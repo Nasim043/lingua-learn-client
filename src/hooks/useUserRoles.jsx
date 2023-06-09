@@ -13,7 +13,7 @@ const useUserRoles = () => {
     })
 
     async function fetchUserRole() {
-        const response = await axiosSecure.get(`users/role/${user.email}`);
+        const response = await axiosSecure.get(`users/role/${user?.email}`);
         return response.data;
     }
 
@@ -21,8 +21,9 @@ const useUserRoles = () => {
     const isAdmin = role === 'admin';
     const isInstructor = role === 'instructor';
     const isStudent = role === 'student';
+    const dbUser = data?.user;
 
-    return { role, isAdmin, isInstructor, isStudent };
+    return { role, isAdmin, isInstructor, isStudent, dbUser };
 };
 
 export default useUserRoles;

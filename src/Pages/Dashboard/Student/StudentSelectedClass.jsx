@@ -1,8 +1,9 @@
+import DashboadSection from "../../Shared/DashboadSection";
 
 const StudentSelectedClass = () => {
     return (
         <div>
-            <h1>My selected class</h1>
+            <DashboadSection heading={"My selected classes"}></DashboadSection>
         </div>
     );
 };
