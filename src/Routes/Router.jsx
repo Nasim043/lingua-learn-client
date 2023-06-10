@@ -12,6 +12,7 @@ import InstructorManageClass from "../Pages/Dashboard/Instructors/InstructorMana
 import StudentSelectedClass from "../Pages/Dashboard/Student/StudentSelectedClass";
 import StudentEnrolledClass from "../Pages/Dashboard/Student/StudentEnrolledClass";
 import Instructors from "../Pages/Instructors/Instructors";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -39,7 +40,7 @@ const router = createBrowserRouter([
   },
   {
     path: "dashboard",
-    element: <Dashboard></Dashboard>,
+    element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
     errorElement: <ErrorPage></ErrorPage>,
     children: [
       {

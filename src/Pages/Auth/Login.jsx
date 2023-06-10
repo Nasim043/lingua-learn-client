@@ -5,10 +5,12 @@ import useTitle from '../../hooks/useTitle';
 import Swal from 'sweetalert2';
 import { AuthContext } from '../../Provider/AuthProvider';
 import { useForm } from 'react-hook-form';
+import useAxiosSecure from '../../hooks/useAxiosSecure';
 
 const Login = () => {
     const navigate = useNavigate()
     const location = useLocation()
+    const [axiosSecure] = useAxiosSecure();
     useTitle('Login')
     const { login, googleLogIn } = useContext(AuthContext);
     const { register, handleSubmit, reset } = useForm();
@@ -23,17 +25,23 @@ const Login = () => {
                 const loggedInUser = result.user;
                 console.log(loggedInUser);
                 const newUser = { name: loggedInUser.displayName, email: loggedInUser.email }
-                fetch('http://localhost:5000/users', {
-                    method: 'POST',
-                    headers: {
-                        'content-type': 'application/json'
-                    },
-                    body: JSON.stringify(newUser)
-                })
-                    .then(res => res.json())
-                    .then(() => {
+
+                axiosSecure.post('users', newUser)
+                    .then((res) => {
+                        console.log(res.data);
                         navigate(from, { replace: true });
                     })
+                // fetch('http://localhost:5000/users', {
+                //     method: 'POST',
+                //     headers: {
+                //         'content-type': 'application/json'
+                //     },
+                //     body: JSON.stringify(newUser)
+                // })
+                //     .then(res => res.json())
+                //     .then(() => {
+                //         navigate(from, { replace: true });
+                //     })
             })
             .catch(error => console.log(error.message))
     }

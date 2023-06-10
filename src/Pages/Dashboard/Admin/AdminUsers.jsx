@@ -1,13 +1,18 @@
 import Swal from "sweetalert2";
-import useAllUsers from "../../../hooks/useAllUsers";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import { useEffect, useState } from "react";
 
 
 const AdminUsers = () => {
-    const [users, refetch] = useAllUsers()
+    const [axiosSecure] = useAxiosSecure()
+    const [users, setUsers] = useState()
+    useEffect(() => {
+        axiosSecure.get('/users')
+            .then(res => setUsers(res.data))
+    }, [axiosSecure])
 
     const handleRole = (user, role) => {
         user.role = role;
-        refetch();
         fetch(`http://localhost:5000/users/${user.email}`, {
             method: 'PATCH',
             body: JSON.stringify(user),
@@ -17,9 +22,10 @@ const AdminUsers = () => {
         })
             .then((res) => res.json())
             .then((data) => {
-                refetch();
-                console.log(users);
-                console.log('data', data);
+
+                axiosSecure.get('/users')
+                    .then(res => setUsers(res.data))
+
                 if (data.matchedCount) {
                     Swal.fire({
                         position: 'top-right',
@@ -52,14 +58,9 @@ const AdminUsers = () => {
                                 <td>{user.email}</td>
                                 <td>{user.role}</td>
                                 <td>
-                                    {
-                                        user?.role === 'instructor' ? <button className="btn btn-warning normal-case btn-sm mb-2 mr-2" disabled="disabled">make instructor</button>
-                                            : <button onClick={() => handleRole(user, 'instructor')} className="btn btn-warning normal-case btn-sm mb-2 mr-2">make instructor</button>
-                                    }
-                                    {
-                                        user?.role === 'admin' ? <button className="btn btn-warning normal-case btn-sm mb-2 mr-2" disabled="disabled">make admin</button>
-                                            : <button onClick={() => handleRole(user, 'admin')} className="btn btn-warning normal-case btn-sm mb-2 mr-2">make admin</button>
-                                    }
+                                    <button onClick={() => handleRole(user, 'instructor')} disabled={user.role === 'instructor' ? 'disabled' : ''} className="btn btn-warning normal-case btn-sm mb-2 mr-2">make instructor</button>
+                                    <button onClick={() => handleRole(user, 'admin')} disabled={user.role === 'admin' ? 'disabled' : ''} className="btn btn-warning normal-case btn-sm mb-2 mr-2">make admin</button>
+
                                 </td>
                             </tr>
                             )

@@ -1,10 +1,12 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import SectionTitle from "../Shared/SectionTitle";
 import useUserRoles from "../../hooks/useUserRoles";
+import { AuthContext } from "../../Provider/AuthProvider";
 
 const Classes = () => {
     const [classes, setClasses] = useState();
+    const { user } = useContext(AuthContext);
     const { role, isAdmin, isInstructor, isStudent, dbUser } = useUserRoles()
     const [axiosSecure] = useAxiosSecure();
     useEffect(() => {
@@ -28,7 +30,7 @@ const Classes = () => {
                                     <h2 className="text-lg text-gray-900 font-medium">${singleClass.price}</h2>
                                     <h2 className="text-lg text-gray-900 font-medium">{singleClass.available_seats} seats available</h2>
                                     {/* <button className="flex mx-auto mt-10 text-mysecondary bg-myprimary border-0 py-2 px-8 focus:outline-none hover:bg-yellow-400 rounded text-lg">Select</button> */}
-                                    <button disabled={isAdmin || isInstructor || singleClass.available_seats === 0 ? 'disabled' : ''} className="btn btn-md normal-case font-normal flex mx-auto mt-10 text-mysecondary bg-myprimary border-0 px-8 focus:outline-none hover:bg-yellow-400 rounded text-lg">Select</button>
+                                    <button disabled={(user && isAdmin) || (user && isInstructor) || singleClass.available_seats === 0 ? 'disabled' : ''} className="btn btn-md normal-case font-normal flex mx-auto mt-10 text-mysecondary bg-myprimary border-0 px-8 focus:outline-none hover:bg-yellow-400 rounded text-lg">Select</button>
                                 </div>)
                         }
                     </div>
