@@ -6,16 +6,25 @@ import { AuthContext } from "../../Provider/AuthProvider";
 
 const Classes = () => {
     const [classes, setClasses] = useState();
+    const [classesLoading, setClassesLoading] = useState(true);
     const { user } = useContext(AuthContext);
     const { role, isAdmin, isInstructor, isStudent, dbUser } = useUserRoles()
     const [axiosSecure] = useAxiosSecure();
     useEffect(() => {
         axiosSecure.get("classes")
-            .then(res => setClasses(res.data))
+            .then(res => {
+                setClassesLoading(false)
+                setClasses(res.data)
+            })
     }, [axiosSecure])
     console.log('dbUser', dbUser);
     return (
         <>
+            {
+                classesLoading && <div className="flex justify-center items-center h-screen">
+                    <span className="text-mysecondary loading loading-bars loading-lg"></span>
+                </div>
+            }
             <SectionTitle heading={"our Classes"} subheading={"Find your passion in our comprehensive class offerings"}></SectionTitle>
             <section className="text-gray-600 body-font max-w-7xl mx-auto">
                 <div className="container px-5 pb-24 mx-auto">

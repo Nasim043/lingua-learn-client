@@ -9,6 +9,7 @@ export default {
       fontFamily: {
         'custom': ['Boing', 'Noto', '"Noto Sans JP"', '"Noto Sans KR"', '"Noto Sans SC"', '"Open Sans"', 'sans-serif'],
         'my-font': ['Poppins', 'sans-serif'],
+        'logo': ['Jost', 'Helvetica', 'Arial', 'sans-serif']
       },
       colors: {
         'myprimary': '#fbbd0d',
