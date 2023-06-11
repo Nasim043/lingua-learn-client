@@ -25,8 +25,8 @@ const InstructorManageClass = () => {
                         <tr>
                             <th></th>
                             <th>Class Name</th>
-                            <th>Available Seats</th>
                             <th>Price</th>
+                            <th>Available Seats</th>
                             <th>Status</th>
                             <th>Action</th>
                         </tr>
@@ -36,7 +36,7 @@ const InstructorManageClass = () => {
                             classes?.map((singleClass, index) => <tr key={index}>
                                 <th>{index + 1}</th>
                                 <td>{singleClass.name}</td>
-                                <td>{singleClass.price}</td>
+                                <td>${singleClass.price}</td>
                                 <td>{singleClass.available_seats}</td>
                                 <td>{singleClass.status}</td>
                                 <td>

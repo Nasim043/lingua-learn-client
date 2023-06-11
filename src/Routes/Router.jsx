@@ -13,6 +13,7 @@ import StudentSelectedClass from "../Pages/Dashboard/Student/StudentSelectedClas
 import StudentEnrolledClass from "../Pages/Dashboard/Student/StudentEnrolledClass";
 import Instructors from "../Pages/Instructors/Instructors";
 import PrivateRoute from "./PrivateRoute";
+import Home from "../Pages/Home/Home";
 
 const router = createBrowserRouter([
   {
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
     element: <Main></Main>,
     errorElement: <ErrorPage></ErrorPage>,
     children: [
+      {
+        path: "/",
+        element: <Home></Home>
+      },
       {
         path: "login",
         element: <Login></Login>
