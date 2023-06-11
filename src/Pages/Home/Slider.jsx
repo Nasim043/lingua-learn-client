@@ -17,7 +17,7 @@ import { Link } from "react-router-dom";
 
 const Slider = () => {
     return (
-        <div className="h-96">
+        <div className="mb-14">
             <Swiper
                 spaceBetween={30}
                 centeredSlides={true}

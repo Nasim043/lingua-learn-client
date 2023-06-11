@@ -1,41 +1,43 @@
+import { Link } from "react-router-dom";
+import logo from '../../assets/logo.png';
 
 const Footer = () => {
     return (
         <>
-            <footer className="footer p-10 bg-mysecondary text-[#ffff]">
-            <div>
-                <span className="footer-title">Services</span>
-                <a className="link link-hover">Branding</a>
-                <a className="link link-hover">Design</a>
-                <a className="link link-hover">Marketing</a>
-                <a className="link link-hover">Advertisement</a>
-            </div>
-            <div>
-                <span className="footer-title">Company</span>
-                <a className="link link-hover">About us</a>
-                <a className="link link-hover">Contact</a>
-                <a className="link link-hover">Jobs</a>
-                <a className="link link-hover">Press kit</a>
-            </div>
-            <div>
-                <span className="footer-title">Legal</span>
-                <a className="link link-hover">Terms of use</a>
-                <a className="link link-hover">Privacy policy</a>
-                <a className="link link-hover">Cookie policy</a>
-            </div>
-            <div>
-                <span className="footer-title">Newsletter</span>
-                <div className="form-control w-80">
-                    <label className="label">
-                        <span className="label-text">Enter your email address</span>
-                    </label>
-                    {/* <div className="relative">
-                        <input type="text" placeholder="username@site.com" className="input input-bordered w-full pr-16" />
-                        <button className="btn btn-primary absolute top-0 right-0 rounded-l-none">Subscribe</button>
-                    </div> */}
+            <footer className="footer p-10 bg-mysecondary text-base-content">
+                <Link className="uppercase text-2xl font-extrabold text-myprimary font-my-font flex items-center">
+                    <img src={logo} className="h-10 mr-1" />
+                    <div className="flex flex-col leading-tight font-logo text-xl">
+                        <span>Lingua</span>
+                        <span>Learn</span>
+                    </div>
+                </Link>
+                <div>
+                    <span className="footer-title text-my-third">Services</span>
+                    <a className="link link-hover text-my-white hover:text-myprimary">Branding</a>
+                    <a className="link link-hover text-my-white hover:text-myprimary">Design</a>
+                    <a className="link link-hover text-my-white hover:text-myprimary">Marketing</a>
+                    <a className="link link-hover text-my-white hover:text-myprimary">Advertisement</a>
                 </div>
-            </div>
-        </footer>
+                <div>
+                    <span className="footer-title text-my-third">Company</span>
+                    <a className="link link-hover text-my-white hover:text-myprimary">About us</a>
+                    <a className="link link-hover text-my-white hover:text-myprimary">Contact</a>
+                    <a className="link link-hover text-my-white hover:text-myprimary">Jobs</a>
+                    <a className="link link-hover text-my-white hover:text-myprimary">Press kit</a>
+                </div>
+                <div>
+                    <span className="footer-title text-my-third">Legal</span>
+                    <a className="link link-hover text-my-white hover:text-myprimary">Terms of use</a>
+                    <a className="link link-hover text-my-white hover:text-myprimary">Privacy policy</a>
+                    <a className="link link-hover text-my-white hover:text-myprimary">Cookie policy</a>
+                </div>
+            </footer>
+            <footer className="footer footer-center p-4 bg-my-third text-base-content">
+                <div>
+                    <p>Copyright © 2023 - All right reserved by Lingua Learn Ltd</p>
+                </div>
+            </footer>
         </>
     );
 };
