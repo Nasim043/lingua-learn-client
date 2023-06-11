@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
+import logo from '../../assets/logo.png'
 // import useUserRoles from "../../hooks/useUserRoles";
 
 const Navbar = () => {
@@ -53,8 +54,9 @@ const Navbar = () => {
                             {navItems}
                         </ul>
                     </div>
-                    <Link className="uppercase text-2xl font-extrabold text-myprimary font-my-font">
-                        <div className="flex flex-col leading-tight">
+                    <Link className="uppercase text-2xl font-extrabold text-myprimary font-my-font flex items-center">
+                    <img src={logo} className="h-10 mr-1"/>
+                        <div className="flex-col leading-tight font-logo text-xl hidden sm:inline-flex">
                             <span>Lingua</span>
                             <span>Learn</span>
                         </div>
@@ -70,7 +72,7 @@ const Navbar = () => {
                         {
                             user ? <>
                                 <button onClick={handleLogOut} className="flex mx-auto text-mysecondary bg-myprimary border-0 py-1 px-3 focus:outline-none hover:bg-yellow-400 rounded">Logout</button>
-                                <img src={user?.photoURL} className="w-10 rounded-full ml-1" />
+                                <img src={user?.photoURL} className="h-10 w-10 rounded-full ml-1" />
                             </> :
                                 <>
                                     <Link to="login">

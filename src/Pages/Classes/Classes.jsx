@@ -32,7 +32,7 @@ const Classes = () => {
                         {
                             classes?.map(singleClass =>
                                 <div className={singleClass.available_seats === 0 ? 'bg-red-200 p-6 rounded-lg' : 'bg-[#FBF9F1] p-6 rounded-lg'} key={singleClass._id}>
-                                    <img className="h-40 rounded w-full object-cover object-center mb-6" src={singleClass.image} alt={singleClass.name} />
+                                    <img className="h-48 rounded w-full object-cover object-center mb-6" src={singleClass.image} alt={singleClass.name} />
                                     <h3 className="tracking-widest text-yellow-500 text-xs font-medium">SUBTITLE</h3>
                                     <h2 className="text-2xl text-gray-900 font-medium mb-4">{singleClass.name}</h2>
                                     <h2 className="text-lg text-myprimary font-medium">{singleClass.instructor_name}</h2>
