@@ -1,14 +1,14 @@
 import { useContext } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
 import { Link, NavLink, Outlet } from "react-router-dom";
-import { FaHome, FaUsers, FaBars } from "react-icons/fa";
+import { FaHome, FaUsers, FaBars, FaCreditCard } from "react-icons/fa";
 import { GiTeacher } from "react-icons/gi";
 import useUserRoles from "../hooks/useUserRoles";
 import useTitle from "../hooks/useTitle";
 
 const Dashboard = () => {
     const { user } = useContext(AuthContext);
-    const { role, isAdmin, isInstructor, isStudent } = useUserRoles()
+    const { isAdmin, isInstructor, isStudent } = useUserRoles()
     useTitle('Dashboard');
     return (
         <div className="drawer md:drawer-open">
@@ -65,6 +65,7 @@ const Dashboard = () => {
                             <>
                                 <li><NavLink to='/dashboard/studentselectedclass'><GiTeacher></GiTeacher>My Selected Class</NavLink></li>
                                 <li><NavLink to='/dashboard/studentenrolledclass'><FaUsers></FaUsers>My Enrolled Class</NavLink></li>
+                                <li><NavLink to='/dashboard/studentpaymenthistory'><FaCreditCard></FaCreditCard>Payment History</NavLink></li>
                             </>
                         )
                     }

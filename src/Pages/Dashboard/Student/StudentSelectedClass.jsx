@@ -78,12 +78,12 @@ const StudentSelectedClass = () => {
                                 <td>{singleClass.instructor_name}</td>
                                 <td>{singleClass.instructor_email}</td>
                                 <td>{singleClass.available_seats}</td>
-                                <td>{singleClass.price}</td>
+                                <td>${singleClass.price}</td>
                                 <td>
-                                    <Link to='../adminfeedback' state={singleClass} className="btn btn-warning normal-case btn-sm mb-2 md:mr-2">Pay</Link>
+                                    <Link to='../studentpayment' state={singleClass} className="btn btn-warning normal-case btn-sm">Pay</Link>
                                 </td>
                                 <td>
-                                    <button onClick={() => handleDelete(singleClass._id)} className="btn btn-error normal-case btn-sm mb-2 md:mr-2">Delete</button>
+                                    <button onClick={() => handleDelete(singleClass._id)} className="btn btn-error normal-case btn-sm">Delete</button>
                                 </td>
                             </tr>
                             )
