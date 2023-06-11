@@ -1,6 +1,6 @@
 import { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { FaGoogle } from 'react-icons/fa';
+import { FaEye, FaEyeSlash, FaGoogle } from 'react-icons/fa';
 import useTitle from '../../hooks/useTitle';
 import Swal from 'sweetalert2';
 import { AuthContext } from '../../Provider/AuthProvider';
@@ -13,10 +13,14 @@ const Login = () => {
     const [axiosSecure] = useAxiosSecure();
     useTitle('Login')
     const { login, googleLogIn } = useContext(AuthContext);
+    const [showPassword, setShowPassword] = useState(false);
     const { register, handleSubmit, reset } = useForm();
     const [error, setError] = useState('')
     const from = location.state?.from?.pathname || '/'
 
+    const togglePasswordVisibility = () => {
+        setShowPassword(!showPassword);
+    };
 
     // google login
     const handleGoogleLogin = () => {
@@ -88,7 +92,7 @@ const Login = () => {
                 <div className="card-body">
                     <h3 className='text-3xl font-bold text-center mb-3 text-[#293749]'>Login to have fun</h3>
                     <div className="form-control">
-                        <button className="btn btn-outline btn-primary mb-2" onClick={handleGoogleLogin}><FaGoogle className='me-2'></FaGoogle> Login with Google</button>
+                        <button className="btn btn-outline btn-neutral hover:bg-mysecondary mb-2" onClick={handleGoogleLogin}><FaGoogle className='me-2'></FaGoogle> Login with Google</button>
                         {/* <button className="btn btn-outline" onClick={handleGithubLogin}><FaGithub className='me-2'></FaGithub> Login with Github</button> */}
                     </div>
                     <div className="divider my-3">OR</div>
@@ -99,14 +103,20 @@ const Login = () => {
                             </label>
                             <input type="email" {...register("email", { required: true })} placeholder="email" className="input input-bordered" required />
                         </div>
-                        <div className="form-control">
+                        <div className="form-control relative">
                             <label className="label">
                                 <span className="label-text">Password <span className='text-red-500 text-lg mt-1'></span></span>
                             </label>
-                            <input type="password" {...register("password", { required: true })} placeholder="password" className="input input-bordered" required />
+                            <input type={showPassword ? 'text' : 'password'} {...register("password", { required: true })} placeholder="password" className="input input-bordered" required />
+                            <div
+                                className="absolute inset-y-0 right-0 pr-3 pt-9 flex items-center cursor-pointer"
+                                onClick={togglePasswordVisibility}
+                            >
+                                {showPassword ? <FaEye></FaEye> : <FaEyeSlash></FaEyeSlash>}
+                            </div>
                         </div>
                         <div className="form-control mt-6">
-                            <button className="btn btn-primary">Login</button>
+                            <button className="btn btn-warning">Login</button>
                         </div>
                     </form>
                     {error && <span className='text-sm mt-1 error'>{error}</span>}

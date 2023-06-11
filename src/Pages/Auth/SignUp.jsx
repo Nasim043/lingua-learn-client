@@ -121,7 +121,7 @@ const SignUp = () => {
                 <div className="card-body">
                     <h3 className='text-3xl font-bold text-center mb-3 text-[#293749]'>Sign up to start learning</h3>
                     <div className="form-control">
-                        <button className="btn btn-outline btn-primary mb-2" onClick={handleGoogleLogin}><FaGoogle className='me-2'></FaGoogle> Login with Google</button>
+                        <button className="btn btn-outline btn-neutral hover:bg-mysecondary mb-2" onClick={handleGoogleLogin}><FaGoogle className='me-2'></FaGoogle> Login with Google</button>
                         {/* <button className="btn btn-outline" onClick={handleGithubLogin}><FaGithub className='me-2'></FaGithub> Login with Github</button> */}
                     </div>
                     <div className="divider my-3">Or sign up with email</div>
@@ -165,7 +165,7 @@ const SignUp = () => {
                         </div>
                         {authError && <span className='text-red-500 text-sm mt-1 error'>{authError}</span>}
                         <div className="form-control mt-6">
-                            <button className="btn btn-primary">Sign Up</button>
+                            <button className="btn btn-warning">Sign Up</button>
                         </div>
                     </form>
                     <p className='mt-3'>Already have an account?  <Link to='/login' className="link link-hover text-primary">Log In</Link></p>
