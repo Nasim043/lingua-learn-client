@@ -3,6 +3,7 @@ import useAxiosSecure from "../../hooks/useAxiosSecure";
 import SectionTitle from "../Shared/SectionTitle";
 import useUserRoles from "../../hooks/useUserRoles";
 import { AuthContext } from "../../Provider/AuthProvider";
+import useTitle from "../../hooks/useTitle";
 
 const Classes = () => {
     const [classes, setClasses] = useState();
@@ -10,6 +11,7 @@ const Classes = () => {
     const { user } = useContext(AuthContext);
     const { role, isAdmin, isInstructor, isStudent, dbUser } = useUserRoles()
     const [axiosSecure] = useAxiosSecure();
+    useTitle('Classes');
     useEffect(() => {
         axiosSecure.get("classes")
             .then(res => {

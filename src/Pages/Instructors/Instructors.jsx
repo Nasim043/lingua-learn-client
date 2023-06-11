@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import SectionTitle from "../Shared/SectionTitle";
+import useTitle from "../../hooks/useTitle";
 
 const Instructors = () => {
     const [axiosSecure] = useAxiosSecure();
     const [instructors, setInstructors] = useState();
+    useTitle('Instructors');
 
     useEffect(() => {
         axiosSecure.get("users/instructors").

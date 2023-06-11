@@ -4,6 +4,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
 import { FaGoogle } from "react-icons/fa";
 import Swal from "sweetalert2";
+import useTitle from "../../hooks/useTitle";
 
 const SignUp = () => {
     const navigate = useNavigate()
@@ -14,7 +15,8 @@ const SignUp = () => {
     const [passwordError, setPasswordError] = useState('');
     const [confPassError, setConfpassError] = useState('');
     const [authError, setAuthError] = useState('')
-    const from = location.state?.from?.pathname || '/'
+    const from = location.state?.from?.pathname || '/';
+    useTitle('Signup');
 
     const handlePassword = (e) => {
         const password = e.target.value;

@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import { AuthContext } from "../../../Provider/AuthProvider";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import useTitle from "../../../hooks/useTitle";
 
 const image_hosting_token = import.meta.env.VITE_image_upload_token;
 
@@ -12,6 +13,7 @@ const InstructorAddClass = () => {
     const [selectedImage, setSelectedImage] = useState(null);
     const { user } = useContext(AuthContext);
     const [axiosSecure] = useAxiosSecure()
+    useTitle('Instructors');
 
     const img_hosting_url = `https://api.imgbb.com/1/upload?key=${image_hosting_token}`;
 
