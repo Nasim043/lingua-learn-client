@@ -21,7 +21,7 @@ const Instructors = () => {
             <section className="max-w-7xl mx-auto mb-14 pb-24">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {instructors && instructors.map((instructor) =>
-                        <div className="h-full flex items-center border-gray-200 border p-4 rounded-lg" key={instructor._id}>
+                        <div className="h-full flex items-center bg-my-card border p-4 rounded-lg hover:border-b-4 hover:border-myprimary hover:shadow-lg hover:rounded-xl transition duration-300 ease-in-out transform hover:scale-103" key={instructor._id}>
                             <img alt="team" className="w-16 h-16 bg-gray-100 object-cover object-center rounded-full mr-4" src={instructor.image} />
                             <div className="">
                                 <h2 className="text-gray-900 title-font font-medium">{instructor.name}</h2>
@@ -31,7 +31,7 @@ const Instructors = () => {
                     )}
                 </div>
             </section>
-            <SectionTitle heading={"Meet our Instructors"} subheading={"Personalized learning from experienced professionals"}></SectionTitle>
+            {/* <SectionTitle heading={"Meet our Instructors"} subheading={"Personalized learning from experienced professionals"}></SectionTitle>
             <div className="max-w-7xl mx-auto mb-14 pb-24">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {instructors && instructors.map((instructor) =>
@@ -45,7 +45,7 @@ const Instructors = () => {
                         </div>)
                     }
                 </div >
-            </div>
+            </div> */}
         </>
     );
 };

@@ -4,7 +4,6 @@ import { Link, NavLink, Outlet } from "react-router-dom";
 import { FaHome, FaUsers, FaBars } from "react-icons/fa";
 import { GiTeacher } from "react-icons/gi";
 import useUserRoles from "../hooks/useUserRoles";
-import DashboadSection from "../Pages/Shared/DashboadSection";
 import useTitle from "../hooks/useTitle";
 
 const Dashboard = () => {
@@ -35,9 +34,9 @@ const Dashboard = () => {
                                     <img className="h-14 w-14 rounded-full" src={user.photoURL} alt="" />
                                 </div>
                                 <div className="mb-4">
-                                    <p className="text-2xl font-medium text-white">Welcome, {user.displayName}</p>
-                                    {/* <p className="text-sm font-medium">{user.email}</p> */}
-                                    <p className="text-sm font-medium text-white capitalize">{role} Dashboard</p>
+                                    <p className="text-2xl font-medium text-white">{user.displayName}</p>
+                                    <p className="text-base font-medium text-white">{user.email}</p>
+                                    {/* <p className="text-sm font-medium text-white capitalize">{role} Dashboard</p> */}
                                 </div>
                             </div>
                             : ""

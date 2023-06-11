@@ -1,28 +1,47 @@
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const Feedback = () => {
     const location = useLocation();
     const data = location.state;
-    console.log(data);
-    const handleSubmit = () => {
-
+    const navigate = useNavigate();
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        data.feedback = e.target.feedback.value;
+        fetch(`http://localhost:5000/classes/feedback/${data?._id}`, {
+            method: 'PATCH',
+            body: JSON.stringify(data),
+            headers: {
+                'content-type': 'application/json'
+            }
+        })
+            .then((res) => res.json())
+            .then((resData) => {
+                // console.log(resData);
+                if (resData.matchedCount) {
+                    Swal.fire({
+                        position: 'top-right',
+                        icon: 'success',
+                        title: `Send feedback successfully`,
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+                    navigate('../adminclasses');
+                }
+            })
     }
     return (
         <>
             <form onSubmit={handleSubmit} className="max-w-md mx-auto my-4 md:my-10 px-14 py-6 shadow-lg rounded-md">
-                <h3 className='text-3xl font-bold text-center mb-3 text-mysecondary'>Add a Class</h3>
+                <h3 className='text-3xl font-bold text-center mb-6 text-mysecondary'>Give a feedback</h3>
                 <div className="mb-4">
-                    <label htmlFor="className" className="block text-gray-700 font-bold mb-2">
-                        Class Name
-                    </label>
-                    <textarea className="textarea textarea-warning" placeholder="Bio"></textarea>
+                    <textarea className="textarea textarea-warning textarea-md w-full max-w-xs"
+                        placeholder="Why you are approved or reject this course?"
+                        defaultValue={data?.feedback}
+                       name="feedback"
+                    ></textarea>
                 </div>
-                <button
-                    type="submit"
-                    className="bg-myprimary text-mysecondary font-bold py-2 px-4 rounded"
-                >
-                    Add
-                </button>
+                <button type="submit" className="bg-myprimary text-mysecondary font-bold py-2 px-4 rounded">Submit</button>
             </form>
         </>
     );

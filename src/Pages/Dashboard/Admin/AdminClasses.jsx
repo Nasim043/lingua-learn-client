@@ -37,9 +37,6 @@ const ADminClasses = () => {
                 }
             })
     }
-    const handleModalData = (data) => {
-        window.feedback_modal.showModal();
-    }
 
     return (
         <div>
@@ -79,8 +76,7 @@ const ADminClasses = () => {
                                 <td>
                                     <button onClick={() => handleStatus(singleClass, 'approved')} disabled={singleClass.status === 'approved' || singleClass.status === 'denied' ? 'disabled' : ''} className="btn btn-warning normal-case btn-sm mb-2 md:mr-2">Approve</button>
                                     <button onClick={() => handleStatus(singleClass, 'denied')} disabled={singleClass.status === 'approved' || singleClass.status === 'denied' ? 'disabled' : ''} className="btn btn-error normal-case btn-sm mb-2 md:mr-2">Deny</button>
-                                    {/* <button onClick={() => handleModalData(singleClass)} className="btn btn-warning normal-case btn-sm mb-2 md:mr-2">send feedback</button> */}
-                                    <Link to='../adminfeedback' state={setClasses} className="btn btn-warning normal-case btn-sm mb-2 md:mr-2">send feedback</Link>
+                                    <Link to='../adminfeedback' state={singleClass} className="btn btn-warning normal-case btn-sm mb-2 md:mr-2">send feedback</Link>
                                 </td>
                             </tr>
                             )

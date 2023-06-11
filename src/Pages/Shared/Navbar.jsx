@@ -6,7 +6,7 @@ import useUserRoles from "../../hooks/useUserRoles";
 
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext)
-    const { role, isAdmin, isInstructor, isStudent } = useUserRoles()
+    const { isAdmin, isInstructor, isStudent } = useUserRoles()
     const navigate = useNavigate()
     const handleLogOut = () => {
         logOut()
@@ -55,7 +55,7 @@ const Navbar = () => {
                         </ul>
                     </div>
                     <Link className="uppercase text-2xl font-extrabold text-myprimary font-my-font flex items-center">
-                    <img src={logo} className="h-10 mr-1"/>
+                        <img src={logo} className="h-10 mr-1" />
                         <div className="flex-col leading-tight font-logo text-xl hidden sm:inline-flex">
                             <span>Lingua</span>
                             <span>Learn</span>

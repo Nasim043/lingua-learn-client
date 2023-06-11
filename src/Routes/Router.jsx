@@ -18,6 +18,7 @@ import AdminRoute from "./AdminRoute";
 import InstructorRoute from "./InstructorRoute";
 import StudentRoute from "./StudentRoute";
 import Feedback from "../Pages/Dashboard/Admin/Feedback";
+import InstructorUpdateClass from "../Pages/Dashboard/Instructors/InstructorUpdateClass";
 
 const router = createBrowserRouter([
   {
@@ -71,6 +72,10 @@ const router = createBrowserRouter([
       {
         path: "instructormanageclass",
         element: <InstructorRoute><InstructorManageClass></InstructorManageClass></InstructorRoute>
+      },
+      {
+        path: "instructorupdateclass",
+        element: <InstructorRoute><InstructorUpdateClass></InstructorUpdateClass></InstructorRoute>
       },
       {
         path: "studentselectedclass",

@@ -27,12 +27,12 @@ const Login = () => {
         googleLogIn()
             .then(result => {
                 const loggedInUser = result.user;
-                console.log(loggedInUser);
+                // console.log(loggedInUser);
                 const newUser = { name: loggedInUser.displayName, email: loggedInUser.email, image: loggedInUser.photoURL }
 
                 axiosSecure.post('users', newUser)
-                    .then((res) => {
-                        console.log(res.data);
+                    .then(() => {
+                        // console.log(res.data);
                         navigate(from, { replace: true });
                     })
                 // fetch('http://localhost:5000/users', {
@@ -68,11 +68,11 @@ const Login = () => {
     //         .catch(error => console.log(error.message))
     // }
     const onSubmit = (data) => {
-        console.log(data);
+        // console.log(data);
         login(data.email, data.password)
-            .then(result => {
+            .then(() => {
                 reset();
-                console.log(result.user);
+                // console.log(result.user);
                 Swal.fire({
                     position: 'center',
                     icon: 'success',
