@@ -14,6 +14,10 @@ import StudentEnrolledClass from "../Pages/Dashboard/Student/StudentEnrolledClas
 import Instructors from "../Pages/Instructors/Instructors";
 import PrivateRoute from "./PrivateRoute";
 import Home from "../Pages/Home/Home";
+import AdminRoute from "./AdminRoute";
+import InstructorRoute from "./InstructorRoute";
+import StudentRoute from "./StudentRoute";
+import Feedback from "../Pages/Dashboard/Admin/Feedback";
 
 const router = createBrowserRouter([
   {
@@ -50,27 +54,31 @@ const router = createBrowserRouter([
     children: [
       {
         path: "adminclasses",
-        element: <AdminClasses></AdminClasses>
+        element: <AdminRoute><AdminClasses></AdminClasses></AdminRoute>,
       },
       {
         path: "adminusers",
-        element: <AdminUsers></AdminUsers>
+        element: <AdminRoute><AdminUsers></AdminUsers></AdminRoute>,
+      },
+      {
+        path: "adminfeedback",
+        element: <AdminRoute><Feedback></Feedback></AdminRoute>
       },
       {
         path: "instructoraddclass",
-        element: <InstructorAddClass></InstructorAddClass>
+        element: <InstructorRoute><InstructorAddClass></InstructorAddClass></InstructorRoute>
       },
       {
         path: "instructormanageclass",
-        element: <InstructorManageClass></InstructorManageClass>
+        element: <InstructorRoute><InstructorManageClass></InstructorManageClass></InstructorRoute>
       },
       {
         path: "studentselectedclass",
-        element: <StudentSelectedClass></StudentSelectedClass>
+        element: <StudentRoute><StudentSelectedClass></StudentSelectedClass></StudentRoute>
       },
       {
         path: "studentenrolledclass",
-        element: <StudentEnrolledClass></StudentEnrolledClass>
+        element: <StudentRoute><StudentEnrolledClass></StudentEnrolledClass></StudentRoute>
       },
     ]
   }

@@ -5,20 +5,22 @@ import { FaHome, FaUsers, FaBars } from "react-icons/fa";
 import { GiTeacher } from "react-icons/gi";
 import useUserRoles from "../hooks/useUserRoles";
 import DashboadSection from "../Pages/Shared/DashboadSection";
+import useTitle from "../hooks/useTitle";
 
 const Dashboard = () => {
     const { user } = useContext(AuthContext);
     const { role, isAdmin, isInstructor, isStudent } = useUserRoles()
+    useTitle('Dashboard');
     return (
         <div className="drawer md:drawer-open">
             <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
             <div className="drawer-content">
                 {/* Page content here */}
-                <DashboadSection heading={`Welcome ${user?.displayName}`}>
-                    <div className="flex justify-end">
-                        <label htmlFor="my-drawer-2" className="btn btn-circle bg-mysecondary drawer-button md:hidden mt-4 mr-3 z-10 border-myprimary"><FaBars className="bg-myprimary"></FaBars></label>
-                    </div>
-                </DashboadSection>
+                {/* <DashboadSection heading={`Welcome ${user?.displayName}`}> */}
+                <div className="flex justify-end">
+                    <label htmlFor="my-drawer-2" className="btn btn-circle bg-mysecondary drawer-button md:hidden mt-4 mr-3 z-10 border-myprimary"><FaBars className="bg-myprimary"></FaBars></label>
+                </div>
+                {/* </DashboadSection> */}
                 <Outlet></Outlet>
 
             </div>

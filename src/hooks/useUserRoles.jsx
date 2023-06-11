@@ -6,7 +6,7 @@ import { AuthContext } from "../Provider/AuthProvider";
 const useUserRoles = () => {
     const { user, loading } = useContext(AuthContext)
     const [axiosSecure] = useAxiosSecure();
-    const { data } = useQuery({
+    const { data, isLoading } = useQuery({
         queryKey: ['userRole', user?.role],
         enabled: !loading,
         queryFn: fetchUserRole
@@ -23,7 +23,7 @@ const useUserRoles = () => {
     const isStudent = role === 'student';
     const dbUser = data?.user;
 
-    return { role, isAdmin, isInstructor, isStudent, dbUser };
+    return { role, isAdmin, isInstructor, isStudent, dbUser, isLoading };
 };
 
 export default useUserRoles;

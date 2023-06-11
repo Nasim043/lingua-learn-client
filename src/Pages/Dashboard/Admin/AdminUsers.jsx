@@ -40,12 +40,12 @@ const AdminUsers = () => {
 
     return (
         <div>
-            <h3 className="text-mysecondary text-center text-lg my-4 md:my-10">Use your admin previlege to make students instructors or admin</h3>
-            <div className="overflow-x-auto">
+            <h3 className="text-mysecondary text-center text-2xl md:text-3xl font-semibold mb-4 py-4 md:py-10 md:mb-10 bg-my-card">Manage users</h3>
+            <div className="overflow-x-auto md:ml-4 mb-4">
                 <table className="table">
                     <thead>
                         <tr>
-                            <th></th>
+                            <th>SN</th>
                             <th>Email</th>
                             <th>Role</th>
                             <th>Action</th>

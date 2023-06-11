@@ -9,17 +9,17 @@ const Classes = () => {
     const [classes, setClasses] = useState();
     const [classesLoading, setClassesLoading] = useState(true);
     const { user } = useContext(AuthContext);
-    const { role, isAdmin, isInstructor, isStudent, dbUser } = useUserRoles()
+    const { isAdmin, isInstructor } = useUserRoles()
     const [axiosSecure] = useAxiosSecure();
     useTitle('Classes');
     useEffect(() => {
-        axiosSecure.get("classes")
+        axiosSecure.get("classes/approved")
             .then(res => {
                 setClassesLoading(false)
                 setClasses(res.data)
             })
     }, [axiosSecure])
-    console.log('dbUser', dbUser);
+
     return (
         <>
             {
