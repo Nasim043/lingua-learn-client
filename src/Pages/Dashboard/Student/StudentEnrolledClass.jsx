@@ -9,7 +9,7 @@ const StudentEnrolledClass = () => {
     const [classes, setClasses] = useState()
     const { user } = useContext(AuthContext);
     useEffect(() => {
-        axios.get(`http://localhost:5000/users/enrolled/${user?.email}`)
+        axios.get(`https://b7a12-summer-camp-server-side-nasim043.vercel.app/users/enrolled/${user?.email}`)
             .then(res => {
                 setClasses(res.data)
             })

@@ -19,7 +19,7 @@ const StudentSelectedClass = () => {
 
     const handleDelete = (classId) => {
         console.log(classId);
-        fetch(`http://localhost:5000/users/selected/delete/${classId}`, {
+        fetch(`https://b7a12-summer-camp-server-side-nasim043.vercel.app/users/selected/delete/${classId}`, {
             method: 'PATCH',
             body: JSON.stringify(user),
             headers: {

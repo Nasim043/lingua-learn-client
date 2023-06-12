@@ -8,7 +8,7 @@ const Feedback = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         data.feedback = e.target.feedback.value;
-        fetch(`http://localhost:5000/classes/feedback/${data?._id}`, {
+        fetch(`https://b7a12-summer-camp-server-side-nasim043.vercel.app/classes/feedback/${data?._id}`, {
             method: 'PATCH',
             body: JSON.stringify(data),
             headers: {

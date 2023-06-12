@@ -13,7 +13,7 @@ const AdminUsers = () => {
 
     const handleRole = (user, role) => {
         user.role = role;
-        fetch(`http://localhost:5000/users/${user.email}`, {
+        fetch(`https://b7a12-summer-camp-server-side-nasim043.vercel.app/users/${user.email}`, {
             method: 'PATCH',
             body: JSON.stringify(user),
             headers: {

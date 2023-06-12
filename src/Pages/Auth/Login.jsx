@@ -35,7 +35,7 @@ const Login = () => {
                         // console.log(res.data);
                         navigate(from, { replace: true });
                     })
-                // fetch('http://localhost:5000/users', {
+                // fetch('https://b7a12-summer-camp-server-side-nasim043.vercel.app/users', {
                 //     method: 'POST',
                 //     headers: {
                 //         'content-type': 'application/json'

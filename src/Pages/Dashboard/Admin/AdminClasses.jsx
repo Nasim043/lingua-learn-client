@@ -13,7 +13,7 @@ const ADminClasses = () => {
 
     const handleStatus = (classes, status) => {
         classes.status = status;
-        fetch(`http://localhost:5000/classes/${classes?._id}`, {
+        fetch(`https://b7a12-summer-camp-server-side-nasim043.vercel.app/classes/${classes?._id}`, {
             method: 'PATCH',
             body: JSON.stringify(classes),
             headers: {
