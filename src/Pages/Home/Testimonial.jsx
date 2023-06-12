@@ -4,8 +4,8 @@ import HomePageSection from "../Shared/HomePageSection";
 
 const Testimonial = () => {
     return (
-        <section className="text-gray-600 body-font">
-            <div className="container px-5 py-24 mx-auto">
+        <section className="text-gray-600 body-font px-4 py-4 lg:py-8 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl">
+            <div className="container px-5 pt-24 mx-auto">
                 <HomePageSection heading="What Our Students Say" subheading="Read testimonials from our satisfied students about their language learning journey"></HomePageSection>
                 <div className="flex flex-wrap -m-4">
                     <div className="p-4 md:w-1/2 w-full">

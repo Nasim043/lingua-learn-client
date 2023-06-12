@@ -2,13 +2,14 @@ import { useContext, useEffect, useState } from "react";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import DashboadSection from "../../Shared/DashboadSection";
 import { AuthContext } from "../../../Provider/AuthProvider";
+import axios from "axios";
 
 const StudentEnrolledClass = () => {
     const [axiosSecure] = useAxiosSecure()
     const [classes, setClasses] = useState()
     const { user } = useContext(AuthContext);
     useEffect(() => {
-        axiosSecure.get(`/users/enrolled/${user?.email}`)
+        axios.get(`http://localhost:5000/users/enrolled/${user?.email}`)
             .then(res => {
                 setClasses(res.data)
             })

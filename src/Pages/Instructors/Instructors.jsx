@@ -7,19 +7,26 @@ import { motion } from "framer-motion"
 const Instructors = () => {
     const [axiosSecure] = useAxiosSecure();
     const [instructors, setInstructors] = useState();
+    const [instructorLoading, setInstructorLoading] = useState(true);
     useTitle('Instructors');
 
     useEffect(() => {
         axiosSecure.get("users/instructors").
             then((response) => {
+                setInstructorLoading(false)
                 setInstructors(response.data);
             });
     }, [axiosSecure]);
 
     return (
         <>
+            {
+                instructorLoading && <div className="flex justify-center items-center h-screen">
+                    <span className="text-mysecondary loading loading-bars loading-lg"></span>
+                </div>
+            }
             <SectionTitle heading={"Meet our Instructors"} subheading={"Personalized learning from experienced professionals"}></SectionTitle>
-            <section className="max-w-7xl mx-auto mb-14 pb-24">
+            <section className="my-container mb-8">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {/* hover:border-b-4 hover:border-myprimary hover:shadow-lg hover:rounded-xl transition duration-300 ease-in-out transform hover:scale-103 */}
                     {instructors && instructors.map((instructor) =>

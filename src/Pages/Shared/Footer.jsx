@@ -14,10 +14,10 @@ const Footer = () => {
                 </Link>
                 <div>
                     <span className="footer-title text-my-third">Services</span>
-                    <a className="link link-hover text-my-white hover:text-myprimary">Branding</a>
-                    <a className="link link-hover text-my-white hover:text-myprimary">Design</a>
-                    <a className="link link-hover text-my-white hover:text-myprimary">Marketing</a>
-                    <a className="link link-hover text-my-white hover:text-myprimary">Advertisement</a>
+                    <a className="link link-hover text-my-white hover:text-myprimary">Classes</a>
+                    <a className="link link-hover text-my-white hover:text-myprimary">Tutoring</a>
+                    <a className="link link-hover text-my-white hover:text-myprimary">Translation</a>
+                    <a className="link link-hover text-my-white hover:text-myprimary">Certification</a>
                 </div>
                 <div>
                     <span className="footer-title text-my-third">Company</span>

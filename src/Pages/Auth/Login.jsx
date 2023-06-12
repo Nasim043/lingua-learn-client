@@ -101,13 +101,13 @@ const Login = () => {
                             <label className="label">
                                 <span className="label-text">Email <span className='text-red-500 text-lg'></span></span>
                             </label>
-                            <input type="email" {...register("email", { required: true })} placeholder="email" className="input input-bordered" required />
+                            <input type="email" {...register("email", { required: true })} placeholder="email" className="input input-warning input-bordered" required />
                         </div>
                         <div className="form-control relative">
                             <label className="label">
                                 <span className="label-text">Password <span className='text-red-500 text-lg mt-1'></span></span>
                             </label>
-                            <input type={showPassword ? 'text' : 'password'} {...register("password", { required: true })} placeholder="password" className="input input-bordered" required />
+                            <input type={showPassword ? 'text' : 'password'} {...register("password", { required: true })} placeholder="password" className="input input-warning input-bordered" required />
                             <div
                                 className="absolute inset-y-0 right-0 pr-3 pt-9 flex items-center cursor-pointer"
                                 onClick={togglePasswordVisibility}

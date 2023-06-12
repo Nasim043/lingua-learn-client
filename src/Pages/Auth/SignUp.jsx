@@ -130,21 +130,21 @@ const SignUp = () => {
                             <label className="label">
                                 <span className="label-text">Name</span>
                             </label>
-                            <input type="text" {...register("name", { required: true })} placeholder="name" className="input input-bordered" />
+                            <input type="text" {...register("name", { required: true })} placeholder="name" className="input input-warning input-bordered" />
                             {errors.name && <span className="text-sm mt-1 error">Name is required</span>}
                         </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Email</span>
                             </label>
-                            <input type="email" {...register("email", { required: true })} placeholder="email" className="input input-bordered" />
+                            <input type="email" {...register("email", { required: true })} placeholder="email" className="input input-warning input-bordered" />
                             {errors.email && <span className="text-sm mt-1 error">email is required</span>}
                         </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Password</span>
                             </label>
-                            <input type="password" {...register("password", { required: true })} placeholder="******" onChange={(e) => handlePassword(e)} className="input input-bordered" />
+                            <input type="password" {...register("password", { required: true })} placeholder="******" onChange={(e) => handlePassword(e)} className="input input-warning input-bordered" />
                             {errors.password && <span className="text-sm mt-1 error">password is required</span>}
                             {passwordError && <span className="text-sm mt-1 error">{passwordError}</span>}
                         </div>
@@ -152,7 +152,7 @@ const SignUp = () => {
                             <label className="label">
                                 <span className="label-text">Confirm Password</span>
                             </label>
-                            <input type="password" {...register("confirm_password", { required: true })} placeholder="******" onChange={(e) => handleConfirmPass(e)} className="input input-bordered" />
+                            <input type="password" {...register("confirm_password", { required: true })} placeholder="******" onChange={(e) => handleConfirmPass(e)} className="input input-warning input-bordered" />
                             {errors.confirm_password && <span className="text-sm mt-1 error">confirm password is required</span>}
                             {confPassError && <span className="text-sm mt-1 error">{confPassError}</span>}
                         </div>
@@ -160,7 +160,7 @@ const SignUp = () => {
                             <label className="label">
                                 <span className="label-text">PhotoURL</span>
                             </label>
-                            <input type="url" {...register("photoUrl", { required: true })} placeholder="Photo Url" className="input input-bordered" />
+                            <input type="url" {...register("photoUrl", { required: true })} placeholder="Photo Url" className="input input-warning input-bordered" />
                             {errors.photoUrl && <span className="text-sm mt-1 error">photoUrl is required</span>}
                         </div>
                         {authError && <span className='text-red-500 text-sm mt-1 error'>{authError}</span>}

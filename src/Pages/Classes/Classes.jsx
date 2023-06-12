@@ -70,7 +70,7 @@ const Classes = () => {
                 </div>
             }
             <SectionTitle heading={"our Classes"} subheading={"Find your passion in our comprehensive class offerings"}></SectionTitle>
-            <section className="text-gray-600 body-font max-w-7xl mx-auto">
+            <section className="my-container">
                 <div className="container px-5 pb-24 mx-auto">
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                         {

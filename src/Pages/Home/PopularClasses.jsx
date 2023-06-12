@@ -11,7 +11,7 @@ const PopularClasses = () => {
             })
     }, [])
     return (
-        <div className="max-w-7xl mx-auto mb-14 pb-24">
+        <div className="px-4 py-4 md:px-16 lg:px-8 lg:py-8 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl my-20">
             <HomePageSection heading="Discover Popular Language Classes" subheading="Learn a new language with our highly-rated and sought-after classes"></HomePageSection>
             <div className="grid grid-cols-1 md:grid-cols-3 sm:grid-cols-2 gap-10">
                 {
