@@ -1,34 +1,26 @@
 import { useEffect, useState } from "react";
-import useAxiosSecure from "../../hooks/useAxiosSecure";
-import SectionTitle from "../Shared/SectionTitle";
-import useTitle from "../../hooks/useTitle";
+import HomePageSection from "../Shared/HomePageSection";
 import { motion } from "framer-motion"
 
-const Instructors = () => {
-    const [axiosSecure] = useAxiosSecure();
+const PopularInstructors = () => {
     const [instructors, setInstructors] = useState();
-    useTitle('Instructors');
 
     useEffect(() => {
-        axiosSecure.get("users/instructors").
-            then((response) => {
-                setInstructors(response.data);
-            });
-    }, [axiosSecure]);
-
+        fetch('http://localhost:5000/instructors/popular')
+            .then(res => res.json())
+            .then(data => {
+                setInstructors(data)
+                console.log(data);
+            })
+    }, []);
     return (
-        <>
-            <SectionTitle heading={"Meet our Instructors"} subheading={"Personalized learning from experienced professionals"}></SectionTitle>
+        <div>
+            <HomePageSection heading="Meet Our Expert Language Instructors" subheading="Learn from experienced instructors who are passionate about teaching languages"></HomePageSection>
             <section className="max-w-7xl mx-auto mb-14 pb-24">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {/* hover:border-b-4 hover:border-myprimary hover:shadow-lg hover:rounded-xl transition duration-300 ease-in-out transform hover:scale-103 */}
                     {instructors && instructors.map((instructor) =>
                         <motion.div
-                            whileHover={{
-                                scale: 1.2,
-                                transition: { duration: 0.5 },
-                            }}
-                            whileTap={{ scale: 0.9 }}
+                            whileHover={{ scale: 1.2, transition: { duration: 0.5 }, }} whileTap={{ scale: 0.9 }}
                             className="h-full flex items-center bg-my-card border p-4 rounded-lg hover:border-myprimary" key={instructor._id}>
                             <img alt="team" className="w-16 h-16 bg-gray-100 object-cover object-center rounded-full mr-4" src={instructor.image} />
                             <div className="">
@@ -39,8 +31,8 @@ const Instructors = () => {
                     )}
                 </div>
             </section>
-        </>
+        </div>
     );
 };
 
-export default Instructors;
+export default PopularInstructors;

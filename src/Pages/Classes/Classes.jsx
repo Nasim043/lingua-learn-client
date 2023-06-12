@@ -5,6 +5,7 @@ import useUserRoles from "../../hooks/useUserRoles";
 import { AuthContext } from "../../Provider/AuthProvider";
 import useTitle from "../../hooks/useTitle";
 import Swal from "sweetalert2";
+import { motion } from "framer-motion"
 
 const Classes = () => {
     const [classes, setClasses] = useState();
@@ -82,7 +83,16 @@ const Classes = () => {
                                     <h2 className="text-lg text-gray-900 font-medium">${singleClass.price}</h2>
                                     <h2 className="text-lg text-gray-900 font-medium">{singleClass.available_seats} seats available</h2>
                                     {/* <button className="flex mx-auto mt-10 text-mysecondary bg-myprimary border-0 py-2 px-8 focus:outline-none hover:bg-yellow-400 rounded text-lg">Select</button> */}
-                                    <button onClick={() => handleSelected(singleClass._id)} disabled={(user && isAdmin) || (user && isInstructor) || singleClass.available_seats === 0 ? 'disabled' : ''} className="btn btn-md normal-case font-normal flex mx-auto mt-10 text-mysecondary bg-myprimary border-0 px-8 focus:outline-none hover:bg-yellow-400 rounded text-lg">Select</button>
+                                    <motion.button
+                                        whileHover={{
+                                            scale: 1.1,
+                                            transition: { duration: 0.5 },
+                                        }}
+                                        whileTap={{ scale: 0.9 }}
+                                        onClick={() => handleSelected(singleClass._id)} disabled={(user && isAdmin) || (user && isInstructor) || singleClass.available_seats === 0 ? 'disabled' : ''}
+                                        className="btn btn-md normal-case font-normal flex mx-auto mt-10 text-mysecondary bg-myprimary border-0 px-8 focus:outline-none hover:bg-yellow-400 rounded text-lg">
+                                        Select
+                                    </motion.button>
                                 </div>)
                         }
                     </div>

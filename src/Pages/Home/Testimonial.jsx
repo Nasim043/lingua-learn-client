@@ -1,10 +1,12 @@
 /* eslint-disable react/no-unescaped-entities */
 
+import HomePageSection from "../Shared/HomePageSection";
+
 const Testimonial = () => {
     return (
         <section className="text-gray-600 body-font">
             <div className="container px-5 py-24 mx-auto">
-                <h1 className="text-3xl font-medium title-font text-gray-900 mb-12 text-center">Testimonials</h1>
+                <HomePageSection heading="What Our Students Say" subheading="Read testimonials from our satisfied students about their language learning journey"></HomePageSection>
                 <div className="flex flex-wrap -m-4">
                     <div className="p-4 md:w-1/2 w-full">
                         <div className="h-full bg-my-card p-8 rounded">
@@ -14,10 +16,10 @@ const Testimonial = () => {
                             <p className="leading-relaxed mb-6">Lingua Learn made learning Italian so easy! The interactive lessons and helpful resources helped me grasp the language quickly. Now I can confidently speak with my Italian friends and even plan a trip to Italy. Thank you, Lingua Learn!.</p>
                             <a className="inline-flex items-center">
                                 <img alt="testimonial" src="https://i.ibb.co/PZbWVMR/istockphoto-1154642632-612x612.jpg" className="w-12 h-12 rounded-full flex-shrink-0 object-cover object-center" />
-                                    <span className="flex-grow flex flex-col pl-4">
-                                        <span className="title-font font-medium text-gray-900">Maria Thompson</span>
-                                        <span className="text-gray-500 text-sm">Freelance Designer</span>
-                                    </span>
+                                <span className="flex-grow flex flex-col pl-4">
+                                    <span className="title-font font-medium text-gray-900">Maria Thompson</span>
+                                    <span className="text-gray-500 text-sm">Freelance Designer</span>
+                                </span>
                             </a>
                         </div>
                     </div>
@@ -29,10 +31,10 @@ const Testimonial = () => {
                             <p className="leading-relaxed mb-6">I never thought learning Chinese could be this fun and effective. With Lingua Learn, I've gained practical language skills through engaging exercises and real-life scenarios. I'm impressed with how quickly I progressed. Lingua Learn is a game-changer!</p>
                             <a className="inline-flex items-center">
                                 <img alt="testimonial" src="https://i.ibb.co/GvTq2cL/1648484530383.jpg" className="w-12 h-12 rounded-full flex-shrink-0 object-cover object-center" />
-                                    <span className="flex-grow flex flex-col pl-4">
-                                        <span className="title-font font-medium text-gray-900">John Davis</span>
-                                        <span className="text-gray-500 text-sm">Business Analyst</span>
-                                    </span>
+                                <span className="flex-grow flex flex-col pl-4">
+                                    <span className="title-font font-medium text-gray-900">John Davis</span>
+                                    <span className="text-gray-500 text-sm">Business Analyst</span>
+                                </span>
                             </a>
                         </div>
                     </div>
