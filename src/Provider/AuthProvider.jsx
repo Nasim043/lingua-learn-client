@@ -55,11 +55,13 @@ const AuthProvider = ({ children }) => {
         axios.post('https://b7a12-summer-camp-server-side-nasim043.vercel.app/jwt', { email: currentUser.email })
         .then(res=>{
           localStorage.setItem('access_token', res.data.token)
+          setLoading(false);
         })
       }else{
         localStorage.removeItem('access_token');
+        setLoading(false);
       }
-      setLoading(false);
+      
     });
 
     // stop observing while unmounting 

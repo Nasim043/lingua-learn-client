@@ -7,8 +7,8 @@ import useUserRoles from "../hooks/useUserRoles";
 import useTitle from "../hooks/useTitle";
 
 const Dashboard = () => {
-    const { user } = useContext(AuthContext);
     const { isAdmin, isInstructor, isStudent } = useUserRoles()
+    const { user } = useContext(AuthContext);
     useTitle('Dashboard');
     return (
         <div className="drawer md:drawer-open">

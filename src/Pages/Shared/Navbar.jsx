@@ -5,8 +5,9 @@ import logo from '../../assets/logo.png'
 import useUserRoles from "../../hooks/useUserRoles";
 
 const Navbar = () => {
-    const { user, logOut } = useContext(AuthContext)
     const { isAdmin, isInstructor, isStudent } = useUserRoles()
+    console.log(isAdmin, isInstructor, isStudent);
+    const { user, logOut } = useContext(AuthContext)
     const navigate = useNavigate()
     const handleLogOut = () => {
         logOut()

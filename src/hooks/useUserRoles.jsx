@@ -7,8 +7,8 @@ const useUserRoles = () => {
     const { user, loading } = useContext(AuthContext)
     const [axiosSecure] = useAxiosSecure();
     const { data, isLoading } = useQuery({
-        queryKey: ['userRole', user?.role],
-        enabled: !loading,
+        queryKey: ['isAdmin', 'isInstructor', 'isStudent', user?.email],
+        enabled: !loading && !!user?.email,
         queryFn: fetchUserRole
     })
 
@@ -21,6 +21,7 @@ const useUserRoles = () => {
     const isAdmin = role === 'admin';
     const isInstructor = role === 'instructor';
     const isStudent = role === 'student';
+    // const isStudent = !isAdmin && !isInstructor
     const dbUser = data?.user;
 
     return { role, isAdmin, isInstructor, isStudent, dbUser, isLoading };

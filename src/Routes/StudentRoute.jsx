@@ -9,6 +9,8 @@ const StudentRoute = ({ children }) => {
     const { isStudent, isLoading } = useUserRoles();
     const location = useLocation();
 
+    // console.log('firebase', loading);
+    // console.log('UseRoleshook', isLoading);
     if (loading || isLoading) {
         return <div className="flex justify-center items-center h-screen">
             <span className="text-mysecondary loading loading-bars loading-lg"></span>
