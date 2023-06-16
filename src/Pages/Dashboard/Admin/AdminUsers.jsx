@@ -1,6 +1,7 @@
-import Swal from "sweetalert2";
+// import Swal from "sweetalert2";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import { useEffect, useState } from "react";
+import { toast } from "react-toastify";
 
 
 const AdminUsers = () => {
@@ -27,13 +28,16 @@ const AdminUsers = () => {
                     .then(res => setUsers(res.data))
 
                 if (data.matchedCount) {
-                    Swal.fire({
-                        position: 'top-right',
-                        icon: 'success',
-                        title: `${user.name}, you are ${user.role} now`,
-                        showConfirmButton: false,
-                        timer: 1500
-                    })
+                    // Swal.fire({
+                    //     position: 'top-right',
+                    //     icon: 'success',
+                    //     title: `${user.name}, you are ${user.role} now`,
+                    //     showConfirmButton: false,
+                    //     timer: 1500
+                    // })
+                    toast.success(`${user.name}, are ${user.role} now`, {
+                        closeOnClick: true,
+                      })
                 }
             })
     }

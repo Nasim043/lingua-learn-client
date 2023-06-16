@@ -1,6 +1,7 @@
 import { useLocation, useNavigate } from "react-router-dom";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
-import Swal from "sweetalert2";
+import { toast } from "react-toastify";
+// import Swal from "sweetalert2";
 
 const InstructorUpdateClass = () => {
     const [axiosSecure] = useAxiosSecure();
@@ -22,13 +23,16 @@ const InstructorUpdateClass = () => {
             .then(res => {
                 // console.log(res);
                 if (res.data.modifiedCount) {
-                    Swal.fire({
-                        position: 'top-end',
-                        icon: 'success',
-                        title: 'Class updated successfully',
-                        showConfirmButton: false,
-                        timer: 1500
-                    })
+                    // Swal.fire({
+                    //     position: 'top-end',
+                    //     icon: 'success',
+                    //     title: 'Class updated successfully',
+                    //     showConfirmButton: false,
+                    //     timer: 1500
+                    // })
+                    toast.success('Class updated successfully', {
+                        closeOnClick: true,
+                      })
                     navigate('../instructormanageclass');
                 }
             })

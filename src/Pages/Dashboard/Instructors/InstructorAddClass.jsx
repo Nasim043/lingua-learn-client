@@ -1,8 +1,9 @@
 import { useContext, useState } from "react";
 import { AuthContext } from "../../../Provider/AuthProvider";
-import Swal from "sweetalert2";
+// import Swal from "sweetalert2";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import useTitle from "../../../hooks/useTitle";
+import { toast } from "react-toastify";
 
 const image_hosting_token = import.meta.env.VITE_image_upload_token;
 
@@ -54,13 +55,16 @@ const InstructorAddClass = () => {
                         .then(data => {
                             if (data.data.insertedId) {
                                 formReset();
-                                Swal.fire({
-                                    position: 'top-end',
-                                    icon: 'success',
-                                    title: 'Class added successfully',
-                                    showConfirmButton: false,
-                                    timer: 1500
-                                })
+                                // Swal.fire({
+                                //     position: 'top-end',
+                                //     icon: 'success',
+                                //     title: 'Class added successfully',
+                                //     showConfirmButton: false,
+                                //     timer: 1500
+                                // })
+                                toast.success('Class added successfully', {
+                                    closeOnClick: true,
+                                  })
                             }
                         })
                 }

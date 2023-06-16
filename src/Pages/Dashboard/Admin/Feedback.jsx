@@ -1,5 +1,6 @@
 import { useLocation, useNavigate } from "react-router-dom";
-import Swal from "sweetalert2";
+import { toast } from "react-toastify";
+// import Swal from "sweetalert2";
 
 const Feedback = () => {
     const location = useLocation();
@@ -19,13 +20,16 @@ const Feedback = () => {
             .then((resData) => {
                 // console.log(resData);
                 if (resData.matchedCount) {
-                    Swal.fire({
-                        position: 'top-right',
-                        icon: 'success',
-                        title: `Send feedback successfully`,
-                        showConfirmButton: false,
-                        timer: 1500
-                    })
+                    // Swal.fire({
+                    //     position: 'top-right',
+                    //     icon: 'success',
+                    //     title: `Send feedback successfully`,
+                    //     showConfirmButton: false,
+                    //     timer: 1500
+                    // })
+                    toast.success('Send feedback successfully', {
+                        closeOnClick: true,
+                      })
                     navigate('../adminclasses');
                 }
             })

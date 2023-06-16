@@ -2,10 +2,11 @@ import { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FaEye, FaEyeSlash, FaGoogle } from 'react-icons/fa';
 import useTitle from '../../hooks/useTitle';
-import Swal from 'sweetalert2';
+// import Swal from 'sweetalert2';
 import { AuthContext } from '../../Provider/AuthProvider';
 import { useForm } from 'react-hook-form';
 import useAxiosSecure from '../../hooks/useAxiosSecure';
+import { toast } from 'react-toastify';
 
 const Login = () => {
     const navigate = useNavigate()
@@ -73,13 +74,16 @@ const Login = () => {
             .then(() => {
                 reset();
                 // console.log(result.user);
-                Swal.fire({
-                    position: 'center',
-                    icon: 'success',
-                    title: 'Login Successfull',
-                    showConfirmButton: false,
-                    timer: 1500
-                })
+                // Swal.fire({
+                //     position: 'center',
+                //     icon: 'success',
+                //     title: 'Login Successfull',
+                //     showConfirmButton: false,
+                //     timer: 1500
+                // })
+                toast.success('Login Successfull', {
+                    closeOnClick: true,
+                  })
                 navigate(from, { replace: true })
             })
             .catch(error => {

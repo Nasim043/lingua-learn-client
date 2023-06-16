@@ -2,8 +2,9 @@ import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../../../Provider/AuthProvider";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
-import Swal from "sweetalert2";
+// import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const CheckoutForm = ({ data }) => {
     const { price } = data;
@@ -93,13 +94,16 @@ const CheckoutForm = ({ data }) => {
                 .then(res => {
                     // console.log('data', res.data);
                     if (res.data.insertResult.insertedId) {
-                        Swal.fire({
-                            position: 'top-right',
-                            icon: 'success',
-                            title: 'Payment done successfully',
-                            showConfirmButton: false,
-                            timer: 1500
-                        })
+                        // Swal.fire({
+                        //     position: 'top-right',
+                        //     icon: 'success',
+                        //     title: 'Payment done successfully',
+                        //     showConfirmButton: false,
+                        //     timer: 1500
+                        // })
+                        toast.success('Payment done successfully', {
+                            closeOnClick: true,
+                          })
                         navigate('../studentselectedclass')
                     }
                 })

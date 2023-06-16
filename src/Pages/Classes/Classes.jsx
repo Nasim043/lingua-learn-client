@@ -4,8 +4,9 @@ import SectionTitle from "../Shared/SectionTitle";
 import useUserRoles from "../../hooks/useUserRoles";
 import { AuthContext } from "../../Provider/AuthProvider";
 import useTitle from "../../hooks/useTitle";
-import Swal from "sweetalert2";
+// import Swal from "sweetalert2";
 import { motion } from "framer-motion"
+import { toast } from "react-toastify";
 
 const Classes = () => {
     const [classes, setClasses] = useState();
@@ -34,31 +35,40 @@ const Classes = () => {
                 .then((res) => res.json())
                 .then(data => {
                     if (data.error) {
-                        Swal.fire({
-                            position: 'top-right',
-                            icon: 'error',
-                            title: data.message,
-                            showConfirmButton: false,
-                            timer: 1500
-                        })
+                        // Swal.fire({
+                        //     position: 'top-right',
+                        //     icon: 'error',
+                        //     title: data.message,
+                        //     showConfirmButton: false,
+                        //     timer: 1500
+                        // })
+                        toast.success(data.message, {
+                            closeOnClick: true,
+                          })
                     } else {
-                        Swal.fire({
-                            position: 'top-right',
-                            icon: 'success',
-                            title: 'Class added successfully',
-                            showConfirmButton: false,
-                            timer: 1500
-                        })
+                        // Swal.fire({
+                        //     position: 'top-right',
+                        //     icon: 'success',
+                        //     title: 'Class added successfully',
+                        //     showConfirmButton: false,
+                        //     timer: 1500
+                        // })
+                        toast.success('Class added successfully', {
+                            closeOnClick: true,
+                          })
                     }
                 })
         } else {
-            Swal.fire({
-                position: 'top-right',
-                icon: 'error',
-                title: 'You need to login to select a class',
-                showConfirmButton: false,
-                timer: 1500
-            })
+            // Swal.fire({
+            //     position: 'top-right',
+            //     icon: 'error',
+            //     title: 'You need to login to select a class',
+            //     showConfirmButton: false,
+            //     timer: 1500
+            // })
+            toast.error('You need to login to select a class', {
+                closeOnClick: true,
+              })
         }
     }
 

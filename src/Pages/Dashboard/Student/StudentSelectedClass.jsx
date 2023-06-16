@@ -3,7 +3,8 @@ import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import { AuthContext } from "../../../Provider/AuthProvider";
-import Swal from "sweetalert2";
+import { toast } from "react-toastify";
+// import Swal from "sweetalert2";
 
 
 const StudentSelectedClass = () => {
@@ -34,13 +35,16 @@ const StudentSelectedClass = () => {
                         setClasses(res.data)
                     })
                 if (data.modifiedCount) {
-                    Swal.fire({
-                        position: 'top-right',
-                        icon: 'success',
-                        title: 'Class deleted successfully',
-                        showConfirmButton: false,
-                        timer: 1500
-                    })
+                    // Swal.fire({
+                    //     position: 'top-right',
+                    //     icon: 'success',
+                    //     title: 'Class deleted successfully',
+                    //     showConfirmButton: false,
+                    //     timer: 1500
+                    // })
+                    toast.success('Class deleted successfully', {
+                        closeOnClick: true,
+                      })
                 }
             })
     }

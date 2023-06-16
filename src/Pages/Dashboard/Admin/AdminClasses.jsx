@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
-import Swal from "sweetalert2";
+// import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const ADminClasses = () => {
     const [axiosSecure] = useAxiosSecure()
@@ -27,13 +28,16 @@ const ADminClasses = () => {
                     .then(res => setClasses(res.data))
 
                 if (data.matchedCount) {
-                    Swal.fire({
-                        position: 'top-right',
-                        icon: 'success',
-                        title: `${classes.name} class is ${classes.status}`,
-                        showConfirmButton: false,
-                        timer: 1500
-                    })
+                    // Swal.fire({
+                    //     position: 'top-right',
+                    //     icon: 'success',
+                    //     title: `${classes.name} class is ${classes.status}`,
+                    //     showConfirmButton: false,
+                    //     timer: 1500
+                    // })
+                    toast.success(`${classes.name} class is ${classes.status}`, {
+                        closeOnClick: true,
+                      })
                 }
             })
     }

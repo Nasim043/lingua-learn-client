@@ -1,18 +1,22 @@
-import Swal from "sweetalert2";
+// import Swal from "sweetalert2";
 import HomePageSection from "../Shared/HomePageSection";
 import { motion } from "framer-motion"
+import { toast } from "react-toastify";
 
 const Contactus = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         e.target.reset();
-        Swal.fire({
-            position: 'top-end',
-            icon: 'success',
-            title: 'Message sent successfully',
-            showConfirmButton: false,
-            timer: 1500
-        })
+        // Swal.fire({
+        //     position: 'top-end',
+        //     icon: 'success',
+        //     title: 'Message sent successfully',
+        //     showConfirmButton: false,
+        //     timer: 1500
+        // })
+        toast.success('Message sent successfully', {
+            closeOnClick: true,
+          })
     }
     return (
         <section className="text-gray-600 body-font relative">
