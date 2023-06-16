@@ -1,4 +1,4 @@
-# RecipeRealm
+# Lingua Learn
 
 Live demo: https://summer-camp-2a42b.web.app/
 (A foreign language learning website)
@@ -24,7 +24,7 @@ Axios            -> [Axios](https://axios-http.com/docs/intro)
 
 ## Getting Started
 
-To run RecipeRealm locally, follow these steps:
+To run Lingua Learn locally, follow these steps:
 
 - Clone the repository to your local machine.
 - Install dependencies
