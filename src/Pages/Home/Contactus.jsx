@@ -7,13 +7,6 @@ const Contactus = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         e.target.reset();
-        // Swal.fire({
-        //     position: 'top-end',
-        //     icon: 'success',
-        //     title: 'Message sent successfully',
-        //     showConfirmButton: false,
-        //     timer: 1500
-        // })
         toast.success('Message sent successfully', {
             closeOnClick: true,
           })
