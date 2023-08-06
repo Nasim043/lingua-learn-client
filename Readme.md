@@ -3,6 +3,8 @@
 Live demo: https://summer-camp-2a42b.web.app/
 (A foreign language learning website)
 
+Admin Credential:
+admin@learning.com 123456+-*Admin
 ## Features
 
 - User registration and login using email and Google

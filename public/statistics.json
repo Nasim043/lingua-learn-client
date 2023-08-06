@@ -3,24 +3,24 @@
         "id": 1,
         "name": "Active Student",
         "number": 750,
-        "image": "../src/assets/audience.png"
+        "image": "https://i.ibb.co/VqTtk4h/audience.png"
     },
     {
         "id": 2,
         "name": "Interactive Courses",
         "number": 15,
-        "image": "../src/assets/book.png"
+        "image": "https://i.ibb.co/Z1Lv54P/book.png"
     },
     {
         "id": 3,
         "name": "Graduate Students",
         "number": 1000,
-        "image": "../src/assets/graduated.png"
+        "image": "https://i.ibb.co/Xt29H6W/graduated.png"
     },
     {
         "id": 4,
         "name": "Certified Teachers",
         "number": 10,
-        "image": "../src/assets/training.png"
+        "image": "https://i.ibb.co/LxTHCzD/training.png"
     }
 ]
