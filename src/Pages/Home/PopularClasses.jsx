@@ -13,7 +13,7 @@ const PopularClasses = () => {
     return (
         <div className="px-4 py-4 md:px-16 lg:px-8 lg:py-8 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl my-20">
             <HomePageSection heading="Discover Popular Language Classes" subheading="Learn a new language with our highly-rated and sought-after classes"></HomePageSection>
-            <div className="grid grid-cols-1 md:grid-cols-3 sm:grid-cols-2 gap-10">
+            <div className="grid grid-cols-1 md:grid-cols-3 sm:grid-cols-2 gap-10" data-aos="fade-up" data-aos-duration="1000">
                 {
                     classes?.map(singleClass => <div className='shadow-lg flex flex-col rounded-lg bg-my-card' key={singleClass._id}>
                         <div className="relative">

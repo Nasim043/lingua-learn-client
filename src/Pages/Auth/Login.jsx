@@ -74,13 +74,6 @@ const Login = () => {
             .then(() => {
                 reset();
                 // console.log(result.user);
-                // Swal.fire({
-                //     position: 'center',
-                //     icon: 'success',
-                //     title: 'Login Successfull',
-                //     showConfirmButton: false,
-                //     timer: 1500
-                // })
                 toast.success('Login Successfull', {
                     closeOnClick: true,
                   })

@@ -24,7 +24,7 @@ const Subscribe = () => {
     }
     return (
         <section className="text-gray-600 body-font px-4 py-4 lg:py-8 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl">
-            <div className="md:flex justify-around items-center gap-4 py-12 px-3 bg-my-card rounded-lg">
+            <div className="md:flex justify-around items-center gap-4 py-12 px-3 bg-my-card rounded-lg" data-aos="fade-right" data-aos-duration="1000">
                 <h1 className="sm:text-3xl text-2xl font-semibold title-font mb-4 text-gray-900 text-center">Subscribe to our Newsletter</h1>
                 <div>
                     {emailError && <span className="text-sm text-red-400 me-2">*{emailError}</span>}

@@ -16,7 +16,7 @@ const PopularInstructors = () => {
         <div>
             <section className="px-4 py-4 md:px-4 lg:px-4 lg:py-8 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl">
                 <HomePageSection heading="Meet Our Expert Language Instructors" subheading="Learn from experienced instructors who are passionate about teaching languages"></HomePageSection>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" data-aos="fade-right" data-aos-duration="1000">
                     {instructors && instructors.map((instructor) =>
                         <motion.div
                             whileHover={{ scale: 1.2, transition: { duration: 0.5 }, }} whileTap={{ scale: 0.9 }}

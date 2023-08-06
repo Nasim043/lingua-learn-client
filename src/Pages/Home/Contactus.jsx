@@ -1,4 +1,3 @@
-// import Swal from "sweetalert2";
 import HomePageSection from "../Shared/HomePageSection";
 import { motion } from "framer-motion"
 import { toast } from "react-toastify";
@@ -13,7 +12,7 @@ const Contactus = () => {
     }
     return (
         <section className="text-gray-600 body-font relative">
-            <div className="container px-5 py-24 mx-auto">
+            <div className="container px-5 py-24 mx-auto" data-aos="fade-right" data-aos-duration="1000">
                 <HomePageSection heading="Get in Touch" subheading="Have questions? Contact our team for more information or assistance"></HomePageSection>
                 <form onSubmit={handleSubmit} className="lg:w-1/2 md:w-2/3 mx-auto">
                     <div className="flex flex-wrap -m-2">

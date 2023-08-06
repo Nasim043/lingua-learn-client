@@ -3,7 +3,6 @@ import { useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
 import { FaGoogle } from "react-icons/fa";
-// import Swal from "sweetalert2";
 import useTitle from "../../hooks/useTitle";
 import { toast } from "react-toastify";
 
@@ -97,13 +96,6 @@ const SignUp = () => {
                                 .then(data => {
                                     if (data.insertedId) {
                                         reset();
-                                        // Swal.fire({
-                                        //     position: 'top-end',
-                                        //     icon: 'success',
-                                        //     title: 'User created successfully.',
-                                        //     showConfirmButton: false,
-                                        //     timer: 1500
-                                        // });
                                         toast.success('User created successfully', {
                                             closeOnClick: true,
                                           })
