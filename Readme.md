@@ -1,7 +1,8 @@
 # Lingua Learn
-
-Live demo: https://summer-camp-2a42b.web.app/
-(A foreign language learning website)
+#####(A foreign language learning website)
+Live demo: https://lingua-learn-2a42b.netlify.app/
+or
+ https://summer-camp-2a42b.web.app/
 
 Admin Credential:
 admin@learning.com 123456+-*Admin
