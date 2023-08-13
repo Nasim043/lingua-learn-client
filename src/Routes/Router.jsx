@@ -21,6 +21,7 @@ import Feedback from "../Pages/Dashboard/Admin/Feedback";
 import InstructorUpdateClass from "../Pages/Dashboard/Instructors/InstructorUpdateClass";
 import Payments from "../Pages/Dashboard/Student/payments/payments";
 import PaymentHistory from "../Pages/Dashboard/Student/payments/PaymentHistory";
+import Blog from "../Pages/Blog/Blog";
 
 const router = createBrowserRouter([
   {
@@ -47,6 +48,10 @@ const router = createBrowserRouter([
       {
         path: "instructors",
         element: <Instructors></Instructors>
+      },
+      {
+        path: "blog",
+        element: <Blog></Blog>
       }
     ]
   },
